@@ -6,6 +6,8 @@ let turn = 'red'
 
 let fields = []
 
+prepareGame()
+
 function prepareGame() {
     for (let i = 0; i < gridWidth; i++) {
         let column = document.createElement('div')
