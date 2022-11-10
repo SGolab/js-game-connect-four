@@ -28,10 +28,10 @@ function prepareGame() {
 }
 
 function onClick() {
-    let index = fields.length - (gridWidth - this.getAttribute('columnId'))
+    let lastElementInColumnIndex = fields.length - (gridWidth - this.getAttribute('columnId'))
 
     while (true) {
-        const element = fields[index]
+        const element = fields[lastElementInColumnIndex]
 
         if (!element.classList.contains('circle')) {
             element.classList.add('circle')
@@ -49,14 +49,13 @@ function onClick() {
             }
         }
 
-        if (index - gridWidth >= 0) {
-            index -= gridWidth
+        if (lastElementInColumnIndex - gridWidth >= 0) {
+            lastElementInColumnIndex -= gridWidth
         } else {
             break
         }
     }
-
-    checkResult(index)
+    checkResult(lastElementInColumnIndex)
 }
 
 function checkResult(index) {
